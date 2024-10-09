@@ -29,3 +29,5 @@ jobs:
         cache: maven
     - name: Build with Maven
       run: mvn -B package --file maven-examples/maven-example/pom.xml -s maven-examples/maven-example/.m2/settings.xml
+    - name: Deploy with Maven
+      run: mvn deploy
