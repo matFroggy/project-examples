@@ -23,15 +23,17 @@ jobs:
     - uses: actions/checkout@v4
     - name: Set up JDK 11
       uses: actions/setup-java@v4
-      env:
-        TOKEN: ${{ secrets.TOKEN }}
       with:
         java-version: '11'
         distribution: 'temurin'
         cache: maven
     - name: Build with Maven
+      env:
+        TOKEN: ${{ secrets.TOKEN }}
       run: mvn -B package --file maven-examples/maven-example/pom.xml -s maven-examples/maven-example/.m2/settings.xml
     - name: Deploy with Maven
+      env:
+        TOKEN: ${{ secrets.TOKEN }}
       run: mvn deploy --file maven-examples/maven-example/pom.xml -s maven-examples/maven-example/.m2/settings.xml
 
     - name: Setup JF Cli
