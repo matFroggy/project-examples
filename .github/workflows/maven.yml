@@ -43,7 +43,7 @@ jobs:
         JF_ACCESS_TOKEN: ${{ secrets.JF_ACCESS_TOKEN }}
 
     - name: DEBUG
-      run: ls /home/runner/.m2
+      run: ls /home/runner/.m2 && ls /home/runner/.m2/repository
 
     - name: Publish Build info With JFrog CLI
       env:
