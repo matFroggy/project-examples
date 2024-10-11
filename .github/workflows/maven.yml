@@ -59,6 +59,6 @@ jobs:
         jf rt build-add-git
         # Collect dependencies
         #jf rt build-add-dependencies --regexp * $JFROG_CLI_BUILD_NAME $JFROG_CLI_BUILD_NUMBER /home/runner/.m2/repository
-        jf rt build-add-dependencies --spec=/home/runner/.m2/repository $JFROG_CLI_BUILD_NAME $JFROG_CLI_BUILD_NUMBER
+        jf rt build-add-dependencies --spec=/home/runner/.m2/repository/log4j $JFROG_CLI_BUILD_NAME $JFROG_CLI_BUILD_NUMBER
         # Publish build info
         jf rt build-publish
