@@ -42,6 +42,9 @@ jobs:
         JF_URL: ${{ secrets.JF_URL }}
         JF_ACCESS_TOKEN: ${{ secrets.JF_ACCESS_TOKEN }}
 
+    - name: DEBUG
+      run: ls /home/runner/.m2
+
     - name: Publish Build info With JFrog CLI
       env:
         # Generated and maintained by GitHub
