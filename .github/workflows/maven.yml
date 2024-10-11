@@ -58,6 +58,6 @@ jobs:
         # Collect VCS details from git and add them to the build
         jf rt build-add-git
         # Collect dependencies
-        jf rt build-add-dependencies $JFROG_CLI_BUILD_NAME $JFROG_CLI_BUILD_NUMBER /home/runner/.m2/repository --regexp *
+        jf rt build-add-dependencies --regexp * $JFROG_CLI_BUILD_NAME $JFROG_CLI_BUILD_NUMBER /home/runner/.m2/repository
         # Publish build info
         jf rt build-publish
