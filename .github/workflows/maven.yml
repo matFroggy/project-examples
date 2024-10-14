@@ -80,5 +80,5 @@ jobs:
         JFROG_CLI_BUILD_NAME: jfrog-mvn-build-example
         # JFrog organization secret
         JFROG_CLI_BUILD_NUMBER : ${{ github.run_number }}
-        # Publish build info
-        run: jf rt build-publish
+      # Publish build info
+      run: jf rt build-publish
