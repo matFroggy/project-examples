@@ -74,6 +74,12 @@ jobs:
     - name: Download math result for job 1
       uses: actions/download-artifact@v4.1.8
 
+    - name: Setup JF Cli
+      uses: jfrog/setup-jfrog-cli@v4
+      env:
+        JF_URL: ${{ secrets.JF_URL }}
+        JF_ACCESS_TOKEN: ${{ secrets.JF_ACCESS_TOKEN }}
+
     - name: Publish Build info With JFrog CLI
       env:
       # Generated and maintained by GitHub
