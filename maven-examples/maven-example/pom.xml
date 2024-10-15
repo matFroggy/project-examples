@@ -74,7 +74,7 @@
                       <review.team>dev</review.team>
                     </deployProperties>
                     <publisher>
-                      <contextUrl>https://psemea.jfrog.io/</contextUrl>
+                      <contextUrl>https://psemea.jfrog.io/artifactory</contextUrl>
                       <username>mathieup</username>
                       <password>${env.TOKEN}</password>
                       <repoKey>ob1-mvn</repoKey>
