@@ -78,6 +78,8 @@
                       <username>mathieup</username>
                       <password>${env.TOKEN}</password>
                       <repoKey>ob1-mvn</repoKey>
+                      <publishArtifacts>true</publishArtifacts>
+                      <publishBuildInfo>true</publishBuildInfo>
                     </publisher>
                   </configuration>
                 </execution>
