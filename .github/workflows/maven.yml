@@ -61,6 +61,7 @@ jobs:
         # Trying Max command to have deps into buildInfo
         jf mvn-config
         jf mvn clean install --file maven-examples/maven-example/pom.xml
+        ls -R ~/.jfrog/
     
     - name: Display structure of uploaded files
       run: ls -R /home/runner/.m2/
