@@ -77,7 +77,8 @@
                       <contextUrl>https://psemea.jfrog.io/artifactory</contextUrl>
                       <username>mathieup</username>
                       <password>${env.TOKEN}</password>
-                      <repoKey>ob1-mvn</repoKey>
+                      <repoKey>ob1-mvn-local</repoKey>
+                      <snapshotRepoKey>libs-snapshot-local</snapshotRepoKey>
                       <publishArtifacts>true</publishArtifacts>
                       <publishBuildInfo>true</publishBuildInfo>
                     </publisher>
