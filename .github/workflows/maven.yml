@@ -71,9 +71,7 @@ jobs:
       with:
         name: maven-info
         path: |
-          /home/runner/.m2/repository
-          /home/runner/.m2/toolchains.xml
-          /home/runner/.m2/settings.xml
+          ~/.jfrog/
           
         
         
@@ -81,20 +79,20 @@ jobs:
     runs-on: ubuntu-latest
     needs: build
     steps:
-    - name: Download math result for job 1
-      uses: actions/download-artifact@v4.1.8
-      with:
-        name: maven-info
-        path: /home/runner/.m2
-
-    - name: Display structure of downloaded files
-      run: ls -R
-
     - name: Setup JF Cli
       uses: jfrog/setup-jfrog-cli@v4
       env:
         JF_URL: ${{ secrets.JF_URL }}
         JF_ACCESS_TOKEN: ${{ secrets.JF_ACCESS_TOKEN }}
+        
+    - name: Download math result for job 1
+      uses: actions/download-artifact@v4.1.8
+      with:
+        name: maven-info
+        path: ~/.jfrog/
+
+    - name: Display structure of downloaded files
+      run: ls -R
 
     - name: Publish Build info With JFrog CLI
       env:
