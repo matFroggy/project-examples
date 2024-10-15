@@ -69,7 +69,10 @@ jobs:
       uses: actions/upload-artifact@v4.4.3
       with:
         name: maven-info
-        path: /home/runner/.m2
+        path: |
+          /home/runner/.m2/repository
+          /home/runner/.m2/toolchains.xml
+          /home/runner/.m2/settings.xml
           
         
         
