@@ -47,7 +47,5 @@ jobs:
         # Trying Max command to have deps into buildInfo
         jf mvn-config
         jf mvn clean install --file maven-examples/maven-example/pom.xml
-
-    - name: Publish Build info With JFrog CLI
-      # Publish build info
-      run: jf rt build-publish
+        # Publish build info
+        jf rt build-publish
