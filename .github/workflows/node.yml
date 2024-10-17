@@ -17,8 +17,7 @@ jobs:
         with:
           node-version: 18
           registry-url: 'https://registry.npmjs.org'
-          working-directory: npm-example
       - name: install
-        run: npm install
+        run: cd npm-example && npm install
       - name: test
         run: npm test
