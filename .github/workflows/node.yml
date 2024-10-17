@@ -22,7 +22,7 @@ jobs:
         run: npm install
       - name: login
         working-directory: npm-example
-        run: npm login https://psemea.jfrog.io/artifactory
+        run: npm login --registry=https://psemea.jfrog.io/artifactory
       - name: publish
         working-directory: npm-example
         run: npm publish --registry https://psemea.jfrog.io:8081/artifactory/api/npm/default-npm-local/
