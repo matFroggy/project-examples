@@ -31,7 +31,7 @@ jobs:
         # Collect VCS details from git and add them to the build
         #jf rt build-add-git
         # Trying Max command to have deps into buildInfo
-        jf npm-config --repo-resolve https://psemea.jfrog.io/artifactory/npm-virt
+        jf npm-config --repo-resolve https://psemea.jfrog.io/artifactory/default-npm-remote
         jf npm
         # Publish build info
         jf rt build-publish
