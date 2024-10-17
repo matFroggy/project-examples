@@ -10,28 +10,14 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Setup JF Cli
-      uses: jfrog/setup-jfrog-cli@v4
-      env:
-        JF_URL: ${{ secrets.JF_URL }}
-        JF_ACCESS_TOKEN: ${{ secrets.JF_ACCESS_TOKEN }}
-      with:
-        working-directory: npm-example
-
-    - name: Package NPM with JFrog CLI        
-      env:
-        # Generated and maintained by GitHub
-        JFROG_CLI_BUILD_NAME: jfrog-npm-build-example
-        # JFrog organization secret
-        JFROG_CLI_BUILD_NUMBER : ${{ github.run_number }}
-      run: |
-        # Export the build name and build nuber
-        # Collect environment variables for the build
-        jf rt build-collect-env
-        # Collect VCS details from git and add them to the build
-        #jf rt build-add-git
-        # Trying Max command to have deps into buildInfo
-        jf npmc --repo-resolve https://psemea.jfrog.io:8081/artifactory/api/npm/npm-mat-virt
-        jf npm
-        # Publish build info
-        jf rt build-publish
+      - name: checkout
+        uses: actions/checkout@v4
+      - name: setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+          registry-url: 'https://registry.npmjs.org'
+      - name: install
+        run: npm install
+      - name: test
+        run: npm test
