@@ -29,7 +29,7 @@ jobs:
         # Collect environment variables for the build
         jf rt build-collect-env
         # Collect VCS details from git and add them to the build
-        jf rt build-add-git
+        #jf rt build-add-git
         # Trying Max command to have deps into buildInfo
         jf npm-config
         jf npm
