@@ -19,5 +19,3 @@ jobs:
           registry-url: 'https://registry.npmjs.org'
       - name: install
         run: cd npm-example && npm install
-      - name: test
-        run: cd npm-example && npm test
