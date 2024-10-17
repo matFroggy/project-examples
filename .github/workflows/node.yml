@@ -16,10 +16,7 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 18
-          #registry-url: 'https://registry.npmjs.org'
-      - name: config
-        working-directory: npm-example
-        run: npm config set registry https://psemea.jfrog.io:8081/artifactory/api/npm/npm-mat-virt/
+          registry-url: 'https://registry.npmjs.org'
       - name: install
         working-directory: npm-example
         run: npm install
