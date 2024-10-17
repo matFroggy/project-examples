@@ -20,4 +20,4 @@ jobs:
       - name: install
         run: cd npm-example && npm install
       - name: test
-        run: npm test
+        run: cd npm-example && npm test
