@@ -16,14 +16,23 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 18
-          registry-url: 'https://registry.npmjs.org'
+          #registry-url: 'https://registry.npmjs.org'
           TOKEN: ${{ secrets.TOKEN }}
-      - name: install
-        working-directory: npm-example
-        run: npm install
-      - name: login
-        working-directory: npm-example
-        run: npm login --registry=https://psemea.jfrog.io/artifactory --username=mathieup --password=$TOKEN
-      - name: publish
-        working-directory: npm-example
-        run: npm publish --registry https://psemea.jfrog.io:8081/artifactory/api/npm/default-npm-local/
+      - name: Setup JF Cli
+        uses: jfrog/setup-jfrog-cli@v4
+        env:
+          JF_URL: ${{ secrets.JF_URL }}
+          JF_ACCESS_TOKEN: ${{ secrets.JF_ACCESS_TOKEN }}
+      - name: Install JF Cli
+        run: |
+          jf npmc
+          jf npm
+  #    - name: install
+   #     working-directory: npm-example
+    #    run: npm install
+     # - name: login
+      #  working-directory: npm-example
+       # run: npm login --registry=https://psemea.jfrog.io/artifactory --username=mathieup --password=$TOKEN
+     # - name: publish
+      #  working-directory: npm-example
+       # run: npm publish --registry https://psemea.jfrog.io:8081/artifactory/api/npm/default-npm-local/
