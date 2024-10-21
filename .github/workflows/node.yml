@@ -26,7 +26,7 @@ jobs:
       - name: Install JF Cli
         working-directory: npm-example
         run: |
-          jf npmc --resolve-repository https://psemea.jfrog.io/artifactory
+          jf npmc --repo-resolve https://psemea.jfrog.io/artifactory
           jf npm
   #    - name: install
    #     working-directory: npm-example
