@@ -11,3 +11,6 @@ jobs:
     steps:
       - name: Gradle Build Action
         uses: gradle/gradle-build-action@v3.5.0
+
+      - name: Build with Gradle
+        run: ./gradlew build
