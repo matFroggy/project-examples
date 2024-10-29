@@ -1,0 +1,13 @@
+name: Gradle CI with actions
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Gradle Build Action
+        uses: gradle/gradle-build-action@v3.5.0
