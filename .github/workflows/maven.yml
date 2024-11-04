@@ -46,6 +46,6 @@ jobs:
         jf rt build-add-git
         # Trying Max command to have deps into buildInfo
         jf mvn-config
-        jf mvn clean install --file maven-examples/maven-example/pom.xml
+        jf mvn clean deploy --file maven-examples/maven-example/pom.xml
         # Publish build info
         jf rt build-publish
