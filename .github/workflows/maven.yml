@@ -29,8 +29,8 @@ jobs:
     - name: Setup JF Cli
       uses: jfrog/setup-jfrog-cli@v4
       env:
-        JF_URL: ${{ secrets.JF_URL }}
-        JF_ACCESS_TOKEN: ${{ secrets.JF_ACCESS_TOKEN }}
+        JF_URL: ${{ secrets.JF_YANN_URL }}
+        JF_ACCESS_TOKEN: ${{ secrets.JF_YANN_RT_TOKEN }}
 
     - name: Build Maven With JFrog CLI
       env:
