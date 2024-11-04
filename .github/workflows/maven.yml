@@ -38,6 +38,7 @@ jobs:
         JFROG_CLI_BUILD_NAME: jfrog-mvn-build-example
         # JFrog organization secret
         JFROG_CLI_BUILD_NUMBER : ${{ github.run_number }}
+        TOKEN: ${{ secrets.JF_YANN_RT_TOKEN }}
       run: |
         # Export the build name and build nuber
         # Collect environment variables for the build
