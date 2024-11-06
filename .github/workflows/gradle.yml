@@ -12,11 +12,17 @@ jobs:
       - uses: actions/checkout@v4
       - name: Gradle Build Action
         uses: gradle/gradle-build-action@v3.5.0
-
+      - name: Setup JFrog CLI
+        uses: jfrog/setup-jfrog-cli@v4
+        env:
+          # JFrog platform url (for example: https://acme.jfrog.io)
+          JF_URL: https://psemea.jfrog.io
+        with:
+          # Name of the OIDC provider as specified on the OIDC integration page in the JFrog Platform
+          oidc-provider-name: mathieup-github
       - name: Build with Gradle
-        run: |
-          pwd
-          ./gradlew build
-          cd gradle-examples/gradle-example-minimal
-          ./gradlew build
         working-directory: gradle-examples/gradle-example-minimal
+        run: |
+          jf gradle-config
+          jf gradle clean artifactoryPublish
+
