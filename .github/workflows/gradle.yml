@@ -1,7 +1,7 @@
 name: Gradle CI with actions
 on:
   push:
-    branches: [ "dev" ]
+    branches: [ "master" ]
   pull_request:
     branches: [ "master" ]
 
