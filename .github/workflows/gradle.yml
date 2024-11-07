@@ -29,6 +29,5 @@ jobs:
       - name: Build with Gradle
         working-directory: gradle-examples/gradle-example-minimal
         run: |
-          jf gradle-config
-          jf gradle clean artifactoryPublish
+          ./gradlew clean artifactoryPublish
 
