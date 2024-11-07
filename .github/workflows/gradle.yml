@@ -19,7 +19,7 @@ jobs:
           JF_URL: https://psemea.jfrog.io
         with:
           # Name of the OIDC provider as specified on the OIDC integration page in the JFrog Platform
-          oidc-provider-name: mathieup-github
+          oidc-provider-name: mathieup-github:gradle
       - name: Build with Gradle
         working-directory: gradle-examples/gradle-example-minimal
         run: |
