@@ -6,11 +6,11 @@
 # separate terms of service, privacy policy, and support
 # documentation.
 
-name: Java CI with Maven
+name: Multi Maven
 
 on:
   push:
-    branches: [ "dev" ]
+    branches: [ "master" ]
   pull_request:
     branches: [ "master" ]
 
@@ -29,8 +29,8 @@ jobs:
     - name: Setup JF Cli
       uses: jfrog/setup-jfrog-cli@v4
       env:
-        JF_URL: ${{ secrets.JF_YANN_URL }}
-        JF_ACCESS_TOKEN: ${{ secrets.JF_YANN_RT_TOKEN }}
+        JF_URL: ${{ secrets.JF_URL }}
+        JF_ACCESS_TOKEN: ${{ secrets.JF_ACCESS_TOKEN }}
 
     - name: Build Maven With JFrog CLI
       env:
@@ -38,7 +38,7 @@ jobs:
         JFROG_CLI_BUILD_NAME: jfrog-mvn-build-example
         # JFrog organization secret
         JFROG_CLI_BUILD_NUMBER : ${{ github.run_number }}
-        TOKEN: ${{ secrets.JF_YANN_RT_TOKEN }}
+        TOKEN: ${{ secrets.JF_ACCESS_TOKEN }}
       run: |
         # Export the build name and build nuber
         # Collect environment variables for the build
@@ -46,7 +46,8 @@ jobs:
         # Collect VCS details from git and add them to the build
         jf rt build-add-git
         # Trying Max command to have deps into buildInfo
-        #jf mvn-config
-        mvn clean deploy --file maven-examples/maven-example/pom.xml -s maven-examples/maven-example/.m2/settings.xml
+        jf mvn-config
+        #mvn clean deploy --file maven-examples/maven-example/pom.xml -s maven-examples/maven-example/.m2/settings.xml
+        jf mvn clean install
         # Publish build info
         jf rt build-publish
